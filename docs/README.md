@@ -37,7 +37,12 @@ The variant prefix. By default, the kebab component name is used.
 - Type: `string`
 - Default: `prefix(this.variant, this.variantPrefix)`
 
-The prefixed variant value.
+### variantClassPrefix
+
+- Type: `string`
+- Default: `kebabCase(this.variantPrefix)`
+
+The computed variant class prefix.
 
 ## Tailwindcss
 

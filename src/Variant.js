@@ -23,7 +23,7 @@ export default {
         variantPrefix: {
             type: String,
             default() {
-                return kebabCase(this.$options.name);
+                return this.$options.name;
             }
         }
 
@@ -32,12 +32,21 @@ export default {
     computed: {
 
         /**
+         * The computed variant class prefix.
+         *
+         * @param {String}
+         */
+        variantClassPrefix() {
+            return kebabCase(this.variantPrefix);
+        },
+
+        /**
          * The computed variant class name.
          *
          * @param {String}
          */
         variantClass() {
-            return prefix(this.variant, this.variantPrefix);
+            return prefix(this.variant, this.variantClassPrefix);
         }
 
     }

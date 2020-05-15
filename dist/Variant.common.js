@@ -3357,18 +3357,27 @@ var lodash_kebabcase_default = /*#__PURE__*/__webpack_require__.n(lodash_kebabca
     variantPrefix: {
       type: String,
       "default": function _default() {
-        return lodash_kebabcase_default()(this.$options.name);
+        return this.$options.name;
       }
     }
   },
   computed: {
+    /**
+     * The computed variant class prefix.
+     *
+     * @param {String}
+     */
+    variantClassPrefix: function variantClassPrefix() {
+      return lodash_kebabcase_default()(this.variantPrefix);
+    },
+
     /**
      * The computed variant class name.
      *
      * @param {String}
      */
     variantClass: function variantClass() {
-      return prefix_prefix(this.variant, this.variantPrefix);
+      return prefix_prefix(this.variant, this.variantClassPrefix);
     }
   }
 });
