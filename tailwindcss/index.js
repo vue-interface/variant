@@ -1,7 +1,8 @@
 const plugin = require('tailwindcss/plugin');
+const variations = require('../src/variations');
 
-module.exports = plugin(function({ addComponents, theme }) {
-    // nothing to add 
+module.exports = plugin(function() {
+    // nothing to do...
 }, {
     theme: {
         variations: theme => {
