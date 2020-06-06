@@ -38,7 +38,8 @@
   "dependencies": {
     "@vue-interface/utils": "^0.9.1",
     "core-js": "^3.6.4",
-    "lodash.kebabcase": "^4.1.1",
+    "lodash-es": "^4.17.15",
+    "tailwindcss": "^1.4.6",
     "vue": "^2.6.11",
     "vue-interface": "^0.4.58"
   },
@@ -53,7 +54,6 @@
     "eslint-plugin-vue": "^6.2.2",
     "markdown-it-meta": "0.0.1",
     "postcss-cli": "^7.1.1",
-    "tailwindcss": "^1.4.6",
     "vue-template-compiler": "^2.6.11",
     "vuepress": "^1.5.0",
     "vuepress-plugin-template-constants": "^0.2.1"
