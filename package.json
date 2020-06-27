@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "npm run serve",
     "serve": "vue-cli-service build --target lib --name=Variant ./index.js --watch",
-    "build": "vue-cli-service build --target lib --name=Variant ./index.js",
+    "build": "vue-cli-service build --target lib --name=Variant ./main.vue",
     "lint": "vue-cli-service lint",
     "fix": "vue-cli-service lint --fix",
     "pre-release": "npm run build; git add . -A; git commit -m 'pre-release commit'",
