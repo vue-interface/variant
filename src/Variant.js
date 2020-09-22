@@ -1,5 +1,4 @@
-import { prefix } from '@vue-interface/utils';
-import { kebabCase } from 'lodash-es';
+import { kebabCase, prefix } from '@vue-interface/utils';
 
 export default {
 
