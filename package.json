@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/variant",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Vue progress bar component",
   "main": "dist/Variant.umd.js",
   "scripts": {
