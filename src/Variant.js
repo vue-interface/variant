@@ -3,7 +3,7 @@ export default {
     props: {
         
         /**
-         * The variant name
+         * The variant name.
          *
          * @param {String} [variant=primary]
          */
@@ -13,9 +13,9 @@ export default {
         },
 
         /**
-         * The variant prefix
+         * The variant prefix.
          *
-         * @alias color
+         * @param {String}
          */
         variantPrefix: {
             type: String,
