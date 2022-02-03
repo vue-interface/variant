@@ -7,12 +7,6 @@
   ],
   "main": "./dist/variant.umd.js",
   "module": "./dist/variant.es.js",
-  "exports": {
-    ".": {
-      "import": "./dist/variant.es.js",
-      "require": "./dist/variant.umd.js"
-    }
-  },
   "browserslist": "last 2 versions, > 0.5%, ie >= 11",
   "scripts": {
     "dev": "vite",
