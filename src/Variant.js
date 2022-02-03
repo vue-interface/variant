@@ -43,7 +43,7 @@ export default {
          * @param {String}
          */
         variantClass() {
-            return `${this.variantClassPrefix && `${this.variantClassPrefix}-`}${this.variant}`;
+            return `${this.variant && this.variantClassPrefix && `${this.variantClassPrefix}-`}${this.variant}`;
         }
 
     }
