@@ -10,7 +10,7 @@ components.
 
 NPM
 
-    npm i @vue-interface/variant --save
+    npm i @vue-interface/variant
 
 Yarn
 

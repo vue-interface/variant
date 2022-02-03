@@ -1,17 +1,15 @@
 const plugin = require('tailwindcss/plugin');
 const reduce = require('./reduce');
-const defaultVariations = require('./defaultVariations');
+const variations = require('./variations');
 
-module.exports = plugin(function({ config, addUtilities, variants }) {
+module.exports = plugin(function({ config, addUtilities }) {
     function addUtility(prefix, attr) {
-        if(config(`corePlugins.${attr}`) === false) {
-            return;
+        if(config(`corePlugins.${attr}`) !== false) {
+            Object.entries(reduce(variations, `.${prefix}`))
+                .forEach(([ key, value ]) => {
+                    addUtilities({ [key]: { [attr]: value } });
+                });
         }
-
-        Object.entries(reduce(defaultVariations, `.${prefix}-`))
-            .forEach(([ key, value ]) => {
-                addUtilities({ [key]: { [attr]: value } }, variants(attr));
-            });
     }
 
     // Add these as components so core CSS classes are not tied to `@tailwind utilities`.
@@ -20,6 +18,6 @@ module.exports = plugin(function({ config, addUtilities, variants }) {
     addUtility('border', 'borderColor');
 }, {
     theme: {
-        variations: defaultVariations
+        variations
     }
 });

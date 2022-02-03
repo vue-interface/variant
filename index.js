@@ -1,2 +1,5 @@
-import Variant from './src/Variant';
-export default Variant;
+import Variant from './src/Variant.js';
+
+export {
+    Variant
+};

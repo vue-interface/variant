@@ -1,5 +1,3 @@
-import { kebabCase, prefix } from '@vue-interface/utils';
-
 export default {
 
     props: {
@@ -36,7 +34,7 @@ export default {
          * @param {String}
          */
         variantClassPrefix() {
-            return kebabCase(this.variantPrefix);
+            return this.variantPrefix;
         },
 
         /**
@@ -45,7 +43,7 @@ export default {
          * @param {String}
          */
         variantClass() {
-            return prefix(this.variant, this.variantClassPrefix);
+            return `${this.variantClassPrefix && `${this.variantClassPrefix}-`}${this.variant}`;
         }
 
     }
