@@ -5,7 +5,7 @@ export default {
         /**
          * The variant name.
          *
-         * @param {String} [variant=primary]
+         * @param {String}
          */
         variant: String,
 
