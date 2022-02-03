@@ -7,10 +7,7 @@ export default {
          *
          * @param {String} [variant=primary]
          */
-        variant: {
-            type: String,
-            default: 'primary'
-        },
+        variant: String,
 
         /**
          * The variant prefix.
@@ -43,7 +40,11 @@ export default {
          * @param {String}
          */
         variantClass() {
-            return `${this.variant && this.variantClassPrefix && `${this.variantClassPrefix}-`}${this.variant}`;
+            if(!this.variant || !this.variantClassPrefix) {
+                return '';
+            }
+
+            return `${this.variantClassPrefix}-${this.variant}`;
         }
 
     }

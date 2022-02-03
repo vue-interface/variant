@@ -1,9 +1,6 @@
 var Variant = {
   props: {
-    variant: {
-      type: String,
-      default: "primary"
-    },
+    variant: String,
     variantPrefix: {
       type: String,
       default() {
@@ -16,7 +13,10 @@ var Variant = {
       return this.variantPrefix;
     },
     variantClass() {
-      return `${this.variant && this.variantClassPrefix && `${this.variantClassPrefix}-`}${this.variant}`;
+      if (!this.variant || !this.variantClassPrefix) {
+        return "";
+      }
+      return `${this.variantClassPrefix}-${this.variant}`;
     }
   }
 };
