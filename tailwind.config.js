@@ -11,8 +11,5 @@ module.exports = {
     plugins: [
         require('./tailwindcss')
     ],
-    safelist: safelist(Object.assign({},
-        require('./tailwindcss/variations'),
-        require('./tailwindcss/colors')
-    ))
+    safelist: safelist()
 };

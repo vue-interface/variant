@@ -1,6 +1,11 @@
 const reduce = require('./reduce');
 
 module.exports = function safelist(subject, filter) {
+    subject = subject || Object.assign({},
+        require('./variations'),
+        require('./colors')
+    );
+
     const filtered = Object.keys(subject)
         .filter(typeof filter === 'function' ? filter : key => {
             return Array.isArray(filter) ? filter.indexOf(key) > -1 : true;
