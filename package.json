@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/variant",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "The contextual variant mixin.",
   "files": [
     "index.js",
