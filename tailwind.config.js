@@ -1,15 +1,21 @@
+const colors = require('./tailwindcss/colors');
 const safelist = require('./tailwindcss/safelist');
 
 module.exports = {
     content: [
-        "./index.html",
-        "./src/**/*.{vue,js,ts,jsx,tsx}",
+        "./index.html"
     ],
     theme: {
-        extend: {},
+        extend: {
+            variations: {
+                future: colors.fuchsia['600']
+            }
+        },
     },
     plugins: [
         require('./tailwindcss')
     ],
-    safelist: safelist()
+    safelist: [
+        ...safelist(['future', colors]),
+    ]
 };

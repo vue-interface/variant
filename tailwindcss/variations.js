@@ -1,13 +1,13 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-    'primary': colors.blue['500'],
-    'secondary': colors.gray['600'],
-    'danger': colors.red['600'],
-    'success': colors.green['500'],
-    'warning': colors.yellow['500'],
-    'info': colors.teal['400'],
-    'dark': colors.gray['800'],
-    'light': colors.gray['100'],
-    'muted': colors.white
+    primary: colors.sky['600'],
+    secondary: colors.slate['600'],
+    danger: colors.red['700'],
+    success: colors.emerald['600'],
+    warning: colors.amber['500'],
+    info: colors.teal['400'],
+    dark: colors.gray['800'],
+    light: colors.gray['100'],
+    muted: colors.white
 };
