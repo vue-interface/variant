@@ -1,5 +1,4 @@
 const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenColorPalette');
-const shades = require('./shades');
 const variations = require('./variations');
 const variationShades = require('./variationShades');
 
