@@ -1,4 +1,4 @@
-import Variant from './src/Variant.js';
+import Variant from './src/Variant.vue';
 
 export {
     Variant

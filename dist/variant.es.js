@@ -1,23 +1,23 @@
-var Variant = {
+const i = {
   props: {
+    componentPrefix: String,
     variant: String,
-    variantPrefix: {
-      type: String,
-      default() {
-        return this.$options.name && this.$options.name.toLowerCase();
-      }
-    }
+    variantPrefix: String
   },
   computed: {
     variantClassPrefix() {
-      return this.variantPrefix;
+      return this.variantPrefix || this.componentPrefix;
+    },
+    hasVariantPrefix() {
+      return this.variant && !!this.variant.match(
+        new RegExp(`^${this.variantClassPrefix}`)
+      );
     },
     variantClass() {
-      if (!this.variant || !this.variantClassPrefix) {
-        return "";
-      }
-      return `${this.variantClassPrefix}-${this.variant}`;
+      return this.variant ? !this.variantClassPrefix || this.hasVariantPrefix ? this.variant : `${this.variantClassPrefix}-${this.variant}` : "";
     }
   }
 };
-export { Variant };
+export {
+  i as Variant
+};

@@ -11,16 +11,16 @@
 
             <h3 class="text-2xl mb-3">Primary</h3>
 
-            <bg variant="primary-50" class="text-primary-900 p-3">Primary 50</bg>
-            <bg variant="primary-100" class="text-whprimary-800ite p-3">Primary 100</bg>
-            <bg variant="primary-200" class="text-primary-700 p-3">Primary 200</bg>
-            <bg variant="primary-300" class="text-primary-600 p-3">Primary 300</bg>
-            <bg variant="primary-400" class="text-primary-500 p-3">Primary 400</bg>
-            <bg variant="primary" class="text-primary-400 p-3">Primary (500)</bg>
-            <bg variant="primary-600" class="text-primary-300 p-3">Primary 600</bg>
-            <bg variant="primary-700" class="text-primary-200 p-3">Primary 700</bg>
-            <bg variant="primary-800" class="text-primary-100 p-3">Primary 800</bg>
-            <bg variant="primary-900" class="text-primary-50 p-3">Primary 900</bg>
+            <bg variant="primary-50 dark:bg-dark-900" class="text-primary-900 dark:text-dark-50 p-3">Primary 50</bg>
+            <bg variant="bg-primary-100 dark:bg-dark-800 text-primary-800 dark:text-dark-100 p-3">Primary 100</bg>
+            <bg variant="bg-primary-200 dark:bg-dark-700" class="text-primary-700 dark:text-dark-200 p-3">Primary 200</bg>
+            <bg variant="primary-300 dark:bg-dark-600" class="text-primary-600 dark:text-dark-300 p-3">Primary 300</bg>
+            <bg variant="primary-400 dark:bg-dark-500" class="text-primary-500 dark:text-dark-400 p-3">Primary 400</bg>
+            <bg variant="primary dark:bg-dark-400" class="text-primary-400 dark:text-dark-500 p-3">Primary (500)</bg>
+            <bg variant="primary-600 dark:bg-dark-300" class="text-primary-300 dark:text-dark-600 p-3">Primary 600</bg>
+            <bg variant="primary-700 dark:bg-dark-200" class="text-primary-200 dark:text-dark-700 p-3">Primary 700</bg>
+            <bg variant="primary-800 dark:bg-dark-100" class="text-primary-100 dark:text-dark-800 p-3">Primary 800</bg>
+            <bg variant="primary-900 dark:bg-dark-50 dark:text-dark-900" class="text-primary-50 p-3">Primary 900</bg>
 
             <h3 class="text-2xl mt-6 mb-3">Secondary</h3>
 
@@ -146,25 +146,27 @@
 
         <script type="module">
             import './index.css';
-            import Vue from 'vue/dist/vue';
+            import { h, createApp } from 'vue/dist/vue.esm-bundler.js';
             import { Variant } from './index.js';
             
-            Vue.config.devtools = false;
-            Vue.config.productionTip = false;
-                          
-            const Bg = Vue.extend({
+            const Bg = h({
                 name: 'bg',
+                props: {
+                    variantPrefix: {
+                        default: 'bg'
+                    }
+                },
                 mixins: [
                     Variant
                 ],
-                render(createElement) {
-                    return createElement('div', {
+                render() {
+                    return h('div', {
                         class: this.variantClass
-                    }, this.$slots.default);
+                    }, this.$slots.default());
                 }
             });  
 
-            const Txt = Vue.extend({
+            const Txt = h({
                 props: {
                     variantPrefix: {
                         default: 'text'
@@ -173,20 +175,21 @@
                 mixins: [
                     Variant
                 ],
-                render(createElement) {
-                    return createElement('div', {
+                render() {
+                    return h('div', {
                         class: this.variantClass
-                    }, this.$slots.default);
+                    }, this.$slots.default());
                 }
             });
             
-            const vue = new Vue({
-                el: '#app',
+            const vue = createApp({
                 components: {
                     Bg,
                     Txt
                 }
             });
+
+            vue.mount('#app');
         </script>
     </body>
 </html>

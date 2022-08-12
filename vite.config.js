@@ -1,6 +1,6 @@
 import path from 'path';
 import { defineConfig } from 'vite';
-import { createVuePlugin } from 'vite-plugin-vue2';
+import vue from '@vitejs/plugin-vue';
 import { name } from './package.json';
 import { pascalCase } from "change-case";
 import { babel } from '@rollup/plugin-babel';
@@ -17,6 +17,13 @@ export default defineConfig({
         rollupOptions: {
             external: ['vue'],
             output: {
+                assetFileNames: ({ name }) => {
+                    if(name === 'style.css') {
+                        return `${filename}.css`;
+                    }
+    
+                    return name;
+                },
                 globals: {
                     vue: 'Vue'
                 },
@@ -27,14 +34,13 @@ export default defineConfig({
                 })
             ]
         },
-        watch: {
+        watch: !process.env.NODE_ENV && {
             include: [
-                './tailwindcss.js',
                 './tailwindcss/**/*.js'
             ]
         }
     },
     plugins: [
-        createVuePlugin()
+        vue()
     ],
 });
