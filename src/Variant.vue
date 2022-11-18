@@ -5,23 +5,17 @@ export default {
 
         /**
          * The generic component prefix.
-         *
-         * @param {string}
          */
         componentPrefix: String,
         
         /**
          * The variant name.
-         *
-         * @param {string}
          */
         variant: String,
 
         /**
          * The variant prefix. Should use to component prefix, unless the
          * variant prefix is different than the component prefix.
-         *
-         * @param {string}
          */
         variantPrefix: String
 
@@ -31,28 +25,26 @@ export default {
 
         /**
          * The computed variant class prefix.
-         *
-         * @param {string}
          */
-        variantClassPrefix(): string {
+        variantClassPrefix(): string|undefined {
             return this.variantPrefix || this.componentPrefix;
         },
         
         /**
          * Determines if the variant already has the prefix.
-         * 
-         * @returns {boolean}
          */
         hasVariantPrefix(): boolean {
-            return this.variant && !!this.variant.match(
+            if(this.variant === undefined) {
+                return false;
+            }
+
+            return !!this.variant.match(
                 new RegExp(`^${this.variantClassPrefix}`)
             );
         },
 
         /**
          * The variant classes that get injected into the DOM.
-         *
-         * @param {string}
          */
         variantClass(): string {
             // If there is no variant just return an empty string.

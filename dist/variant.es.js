@@ -9,7 +9,7 @@ const i = {
       return this.variantPrefix || this.componentPrefix;
     },
     hasVariantPrefix() {
-      return this.variant && !!this.variant.match(
+      return this.variant === void 0 ? !1 : !!this.variant.match(
         new RegExp(`^${this.variantClassPrefix}`)
       );
     },
