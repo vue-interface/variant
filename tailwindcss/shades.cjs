@@ -1,8 +1,8 @@
 const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette");
 
 module.exports = (variations = null, shades = null) => {
-    variations = variations || require('./variations');
-    shades = shades || require('./variationShades');
+    variations = variations || require('./variations.cjs');
+    shades = shades || require('./variationShades.cjs');
 
     return flattenColorPalette(
         Object.fromEntries(

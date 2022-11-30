@@ -3,25 +3,25 @@
   "version": "2.0.0-beta.1",
   "description": "The contextual variant mixin for interface components.",
   "files": [
-    "index.js",
     "dist",
     "tailwindcss"
   ],
+  "type": "module",
   "main": "./dist/variant.umd.js",
-  "module": "./dist/variant.es.js",
+  "module": "./dist/variant.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/variant.es.js",
+      "import": "./dist/variant.js",
       "require": "./dist/variant.umd.js",
       "types": "./dist/index.d.ts"
     },
-    "./tailwindcss": "./tailwindcss/index.js",
-    "./tailwindcss/colors": "./tailwindcss/colors.js",
-    "./tailwindcss/safelist": "./tailwindcss/safelist.js",
-    "./tailwindcss/shades": "./tailwindcss/shades.js",
-    "./tailwindcss/variations": "./tailwindcss/variations.js",
-    "./tailwindcss/variationShades": "./tailwindcss/variationShades.js"
+    "./tailwindcss": "./tailwindcss/index.cjs",
+    "./tailwindcss/colors": "./tailwindcss/colors.cjs",
+    "./tailwindcss/safelist": "./tailwindcss/safelist.cjs",
+    "./tailwindcss/shades": "./tailwindcss/shades.cjs",
+    "./tailwindcss/variations": "./tailwindcss/variations.cjs",
+    "./tailwindcss/variationShades": "./tailwindcss/variationShades.cjs"
   },
   "browserslist": "last 2 versions, > 0.5%, ie >= 11",
   "scripts": {
@@ -58,14 +58,14 @@
     "vue": "^3.0.0"
   },
   "devDependencies": {
-    "@rollup/plugin-babel": "^6.0.2",
+    "@rollup/plugin-babel": "^6.0.3",
     "@vitejs/plugin-vue": "^3.0.1",
     "autoprefixer": "^10.4.2",
     "babel-eslint": "^10.1.0",
     "babel-preset-vue": "^2.0.2",
     "change-case": "^4.1.2",
-    "eslint": "^8.27.0",
-    "eslint-plugin-vue": "^9.7.0",
+    "eslint": "^8.28.0",
+    "eslint-plugin-vue": "^9.8.0",
     "pascalcase": "^2.0.0",
     "postcss": "^8.4.6",
     "tailwindcss": "^3.0.18",

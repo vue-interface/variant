@@ -1,6 +1,6 @@
 const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenColorPalette');
-const variations = require('./variations');
-const variationShades = require('./variationShades');
+const variations = require('./variations.cjs');
+const variationShades = require('./variationShades.cjs');
 
 module.exports = function safelist(colors, filter) {
     const shades = Object.keys(variationShades);

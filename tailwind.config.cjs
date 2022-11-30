@@ -1,5 +1,5 @@
-const colors = require('./tailwindcss/colors');
-const safelist = require('./tailwindcss/safelist');
+const colors = require('./tailwindcss/colors.cjs');
+const safelist = require('./tailwindcss/safelist.cjs');
 
 module.exports = {
     content: [
@@ -13,7 +13,7 @@ module.exports = {
         },
     },
     plugins: [
-        require('./tailwindcss')
+        require('./tailwindcss/index.cjs')
     ],
     safelist: [
         ...safelist(['future', colors]),

@@ -1,4 +1,3 @@
-<script lang="ts">
 export default {
 
     props: {
@@ -65,4 +64,3 @@ export default {
     }
 
 };
-</script>

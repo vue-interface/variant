@@ -1,4 +1,4 @@
-declare const _sfc_main: {
+declare const _default: {
     props: {
         /**
          * The generic component prefix.
@@ -29,4 +29,4 @@ declare const _sfc_main: {
         variantClass(): string;
     };
 };
-export default _sfc_main;
+export default _default;

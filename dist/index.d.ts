@@ -1,2 +1,2 @@
-import Variant from './src/Variant.vue';
+import Variant from './src/Variant';
 export { Variant };

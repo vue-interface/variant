@@ -21,3 +21,4 @@ const i = {
 export {
   i as Variant
 };
+//# sourceMappingURL=variant.js.map
