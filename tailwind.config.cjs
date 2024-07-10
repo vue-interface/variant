@@ -1,21 +1,19 @@
-const colors = require('./tailwindcss/colors.cjs');
-const safelist = require('./tailwindcss/safelist.cjs');
-
 module.exports = {
+    dark: 'class',
     content: [
         "./index.html"
     ],
     theme: {
         extend: {
             variations: {
-                future: colors.fuchsia['600']
+                future: '#c026d3'
             }
         },
     },
-    plugins: [
-        require('./tailwindcss/index.cjs')
+    presets: [
+        require('./tailwindcss')
     ],
     safelist: [
-        ...safelist(['future', colors]),
+        // ...safelist(['future', colors]),
     ]
 };

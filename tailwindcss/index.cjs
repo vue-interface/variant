@@ -1,25 +1,16 @@
-const plugin = require('tailwindcss/plugin');
 const shades = require('./shades.cjs');
-const variations = require('./variations.cjs');
-const variationShades = require('./variationShades.cjs');
 
-module.exports = plugin(function({ config, theme, matchUtilities }) {
-    matchUtilities({
-        bg: value => ({
-            backgroundColor: value
-        }),
-        text: value => ({
-            color: value
-        }),
-        border: value => ({
-            borderColor: value
-        })
-    }, {
-        values: shades(theme('variations'), theme('variationShades'))
-    });
-}, {
+module.exports = {
     theme: {
-        variations,
-        variationShades
+        variations: require('./variations.cjs'),
+        extend: {
+            colors: function(theme) {
+                return Object.entries(theme('variations')).reduce((carry, [color, value]) => {
+                    return Object.assign(carry, {
+                        [color]: shades(value)
+                    })
+                }, {});
+            }
+        }
     }
-});
+}

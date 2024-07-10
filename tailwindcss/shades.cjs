@@ -1,20 +1,15 @@
-const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette");
+const variationShades = require('./variationShades.cjs');
 
-module.exports = (variations = null, shades = null) => {
-    variations = variations || require('./variations.cjs');
-    shades = shades || require('./variationShades.cjs');
+module.exports = function(color) {
+    if(typeof color === 'object') {
+        return color
+    }
 
-    return flattenColorPalette(
-        Object.fromEntries(
-            Object.entries(variations).map(([key, value]) => [key, 
-                Object.assign({
-                    DEFAULT: value
-                }, Object.fromEntries(
-                    Object.entries(shades).map(([name, shader]) => {
-                        return [name, shader(value)];
-                    })
-                ))
-            ])
-        )
-    );
-};
+    return Object.entries(variationShades).reduce((carry, [weight, fn]) =>{
+        return Object.assign(carry, {
+            [weight]: fn(color)
+        })
+    }, {
+        DEFAULT: color
+    });
+}
